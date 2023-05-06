@@ -4,5 +4,28 @@
   padding-bottom: 10px;
   .search-form{
     text-align: center;
+    margin: 0px auto;
+    width: 25%;
+    position: relative;
+  }
+  .place {
+    font-size: 0.7rem;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: 600;
+    width: 100%;
+    border: none;
+    outline: none;
+    &:focus{
+      box-shadow: 0 0 1px 1px yellow;
+    }
+  }
+  .btn {
+    position: absolute;
+    height: 100%;
+    right: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
   }
 }

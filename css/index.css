@@ -1,13 +1,13 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 .main {
   display: grid;
-  grid-template: 300px/1fr 1fr 1fr 1fr;
+  grid-template: auto/1fr 1fr 1fr 1fr;
   -webkit-column-gap: 30px;
      -moz-column-gap: 30px;
           column-gap: 30px;
   row-gap: 30px;
 }
-.main .div {
+.main .gallery {
   background: red;
 }
 
@@ -18,4 +18,5 @@
 }
 .search .search-form {
   text-align: center;
+  padding: 20px;
 }/*# sourceMappingURL=index.css.map */
