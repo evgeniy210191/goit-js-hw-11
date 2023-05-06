@@ -1,1 +1,12 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
+
+.main{
+  display: grid;
+  grid-template:300px/1fr 1fr 1fr 1fr;
+  column-gap: 30px;
+  row-gap: 30px;
+  .div{
+    background: red;
+  }
+}
+
