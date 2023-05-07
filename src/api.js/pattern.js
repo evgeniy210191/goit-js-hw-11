@@ -21,6 +21,5 @@ export function pattern(object) {
         </p>
       </div>
     </div>
-  `
+  `;
 }
-
