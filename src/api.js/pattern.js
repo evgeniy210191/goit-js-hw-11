@@ -1,8 +1,8 @@
 export function pattern(object) {
   return `
     <div class="photo-card">
-      <img src="${object.pageURL}" alt="${object.user}" loading="lazy" />
-      <div class="info">P
+      <img src="${object.previewURL}" alt="${object.user}" loading="lazy" />
+      <div class="info">
         <p class="info-item">
           <b>Likes</b>
           <span class="statistics">${object.likes}</span>
