@@ -2,7 +2,7 @@ export function pattern(object) {
   return `
     <div class="photo-card">
       <img src="${object.pageURL}" alt="${object.user}" loading="lazy" />
-      <div class="info">
+      <div class="info">P
         <p class="info-item">
           <b>Likes</b>
           <span class="statistics">${object.likes}</span>
