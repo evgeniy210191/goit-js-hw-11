@@ -1,7 +1,7 @@
-export function pattern(object) {
+function pattern(object) {
   return `
     <div class="photo-card">
-      <img src="${object.webformatURL}" alt="${object.user}" loading="lazy" />
+      <img src="${object.webformatURL}" alt="${object.tags}" loading="lazy" />
       <div class="info">
         <p class="info-item">
           <b>Likes</b>
@@ -22,4 +22,17 @@ export function pattern(object) {
       </div>
     </div>
   `;
+}
+
+export function render(res) {
+  const arr = Object.values(res);
+  for (const data of arr) {
+    if (typeof data === 'object') {
+      return data
+        .map(item => {
+          return pattern(item);
+        })
+        .join('');
+    }
+  }
 }

@@ -1,0 +1,74 @@
+@import '~node_modules/modern-normalize/modern-normalize.css';
+
+.gallery{
+  display: grid;
+  grid-template:auto/1fr 1fr 1fr 1fr;
+
+  column-gap: 15px;
+  row-gap: 15px;
+  img{
+    display: block;
+    width: 100%;
+    height:200px
+  }
+  .info{
+    display: flex;
+    padding: 5px;
+  }
+  .info-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 7px;
+  }
+  .photo-card{
+    box-shadow: 0px 1px 1px rgba(0,0,0,.12), 0px 4px 4px rgba(0,0,0,.06), 1px 4px 6px rgba(0,0,0,.16);
+  }
+  .statistics{
+    padding: 5px;
+  }
+}
+.load-more{
+  display: block;
+  border-radius: 5px;
+  background-color: rgb(64, 86, 180);
+  border:none;
+  color:#ffffff;
+  margin:20px auto;
+  padding: 3px 10px 3px 25px;
+  position: relative;
+  cursor: pointer;
+  .loading{
+    position: absolute;
+    height: 15px;
+    width:15px;
+    left:5px;
+    top:50%;
+    transform: translateY(-50%)
+  }
+  .loading.load{
+    animation:2s linear 0s infinite loading
+  }
+  @keyframes loading {
+    from {
+      transform: translateY(-50%)
+    }
+    to {
+      transform: translateY(-50%) rotateZ(1turn)
+    }
+  }
+}
+
+.load-more.hidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+}
+
