@@ -59,7 +59,7 @@ table {
 .gallery img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 200px;
 }
 .gallery .info {
   display: -webkit-box;

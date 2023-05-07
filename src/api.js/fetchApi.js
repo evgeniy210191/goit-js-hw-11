@@ -4,5 +4,5 @@ export function fechApi(url) {
       throw new Error(res.statusText);
     }
     return res.json();
-  })
+  });
 }
