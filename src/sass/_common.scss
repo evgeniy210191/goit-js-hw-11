@@ -2,7 +2,7 @@
 
 .gallery{
   display: grid;
-  grid-template:1fr/1fr 1fr 1fr 1fr;
+  grid-template:auto/1fr 1fr 1fr 1fr;
 
   column-gap: 15px;
   row-gap: 15px;

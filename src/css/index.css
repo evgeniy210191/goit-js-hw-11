@@ -50,7 +50,7 @@ table {
 
 .gallery {
   display: grid;
-  grid-template: 1fr/1fr 1fr 1fr 1fr;
+  grid-template: auto/1fr 1fr 1fr 1fr;
   -webkit-column-gap: 15px;
      -moz-column-gap: 15px;
           column-gap: 15px;
