@@ -35,16 +35,16 @@
   border:none;
   color:#ffffff;
   margin:20px auto;
-  padding: 3px 10px 3px 25px;
+  padding: 3px 10px;
   position: relative;
   cursor: pointer;
   .loading{
     position: absolute;
     height: 15px;
     width:15px;
-    left:5px;
+    left:-20px;
     top:50%;
-    transform: translateY(-50%)
+    transform: translateY(-50%) scale(0)
   }
   .loading.load{
     animation:2s linear 0s infinite loading

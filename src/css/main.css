@@ -1,53 +1,4 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  vertical-align: baseline;
-}
-
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-  display: block;
-}
-
-body {
-  line-height: 1;
-}
-
-ol, ul {
-  list-style: none;
-}
-
-blockquote, q {
-  quotes: none;
-}
-
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: "";
-  content: none;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
 .gallery {
   display: grid;
   grid-template: auto/1fr 1fr 1fr 1fr;
@@ -95,7 +46,7 @@ table {
   border: none;
   color: #ffffff;
   margin: 20px auto;
-  padding: 3px 10px 3px 25px;
+  padding: 3px 10px;
   position: relative;
   cursor: pointer;
 }
@@ -103,10 +54,10 @@ table {
   position: absolute;
   height: 15px;
   width: 15px;
-  left: 5px;
+  left: -20px;
   top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  -webkit-transform: translateY(-50%) scale(0);
+          transform: translateY(-50%) scale(0);
 }
 .load-more .loading.load {
   -webkit-animation: 2s linear 0s infinite loading;
@@ -145,38 +96,4 @@ table {
   -webkit-clip-path: inset(50%);
           clip-path: inset(50%);
   margin: -1px;
-}
-
-.search {
-  background: rgb(64, 86, 180);
-  padding-top: 10px;
-  padding-bottom: 10px;
-  text-align: center;
-}
-.search .search-form {
-  text-align: center;
-  display: inline-block;
-  position: relative;
-}
-.search .place {
-  font-size: 0.7rem;
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-weight: 600;
-  max-width: 100%;
-  border: none;
-  outline: none;
-}
-.search .place:focus {
-  -webkit-box-shadow: 0 0 1px 1px yellow;
-          box-shadow: 0 0 1px 1px yellow;
-}
-.search .btn {
-  position: absolute;
-  height: 100%;
-  right: 0;
-  background: #ffffff;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-}/*# sourceMappingURL=index.css.map */
+}/*# sourceMappingURL=main.css.map */

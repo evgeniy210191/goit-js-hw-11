@@ -1,5 +1,5 @@
-export function fechApi(url) {
-  return fetch(url).then(res => {
+export function fechApi(url, { option }) {
+  return fetch(url, option).then(res => {
     if (!res.ok) {
       throw new Error(res.statusText);
     }
@@ -8,7 +8,6 @@ export function fechApi(url) {
 }
 
 export const config = {
-  method: 'GET',
   headers: {
     'cache-control': 'max-age=86400',
     'content-language': 'en',
