@@ -6,6 +6,10 @@
 
   column-gap: 15px;
   row-gap: 15px;
+  @media  screen and (max-width:450px) {
+    grid-template:auto auto/1fr;
+    padding:0 15px;
+  }
   img{
     display: block;
     width: 100%;
