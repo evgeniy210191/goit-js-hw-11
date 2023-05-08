@@ -65,6 +65,9 @@ table {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   padding: 5px;
 }
 .gallery .info-item {
@@ -95,7 +98,7 @@ table {
   border: none;
   color: #ffffff;
   margin: 20px auto;
-  padding: 3px 10px 3px 25px;
+  padding: 3px 10px;
   position: relative;
   cursor: pointer;
 }
@@ -103,10 +106,10 @@ table {
   position: absolute;
   height: 15px;
   width: 15px;
-  left: 5px;
+  left: -20px;
   top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  -webkit-transform: translateY(-50%) scale(0);
+          transform: translateY(-50%) scale(0);
 }
 .load-more .loading.load {
   -webkit-animation: 2s linear 0s infinite loading;
