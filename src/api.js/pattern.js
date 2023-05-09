@@ -1,7 +1,9 @@
 function pattern(object) {
   return `
     <div class="photo-card">
-      <img src="${object.webformatURL}" alt="${object.tags}" loading="lazy" />
+      <a href="${object.largeImageURL}">
+        <img src="${object.webformatURL}" alt="${object.tags}" loading="lazy" />
+      </a>
       <div class="info">
         <p class="info-item">
           <b>Likes</b>

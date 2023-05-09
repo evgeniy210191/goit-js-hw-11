@@ -3,8 +3,17 @@ import { fechApi, config } from './api.js/fetchApi';
 import Notiflix from 'notiflix';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
-const axios = require('axios/dist/browser/axios.cjs');
-const [form, gallery, btn, img] = [
+
+const lightbox = new SimpleLightbox('.photo-card a', {
+  captionPosition: 'bottom',
+  scrollZoom: false,
+  disableScroll: true,
+  captionDelay: 250,
+  captions: true,
+  captionsData: 'alt',
+});
+
+const [form, galleryList, btn, img] = [
   '#search-form',
   '.gallery',
   '.load-more',
@@ -20,8 +29,18 @@ function showRespons(data) {
       'Sorry, there are no images matching your search query. Please try again.'
     );
   }
-  Notiflix.Notify.info(`Hooray! We found ${data.hits.length} images.`);
-  gallery.insertAdjacentHTML('beforeEnd', render(data));
+  if (data.hits.length > 0) {
+    Notiflix.Notify.info(`Hooray! We found ${data.hits.length} images.`);
+    if (data.hits.length === page) {
+      btn.classList.remove('hidden');
+    } else {
+      if (!btn.classList.contains('hidden')) {
+        btn.classList.add('hidden');
+      }
+    }
+  }
+
+  galleryList.insertAdjacentHTML('beforeEnd', render(data));
   if (img.classList.contains('load')) {
     img.classList.remove('load');
   }
@@ -38,7 +57,7 @@ function addData(data) {
     img.classList.add('load');
   }
 
-  gallery.insertAdjacentHTML('beforeEnd', render(data));
+  galleryList.insertAdjacentHTML('beforeEnd', render(data));
 
   if (img.classList.contains('load')) {
     img.classList.remove('load');
@@ -60,10 +79,24 @@ function showSearch(event) {
   groop = 1;
   const URL_API = `https://pixabay.com/api/?orientation=horizontal&per_page=${page}&page=${groop}&q=${query}&image_type=photo&safesearch=true&key=36116088-deee45cedc6b935fbf33378b4`;
   if (query === '') return;
-  gallery.innerHTML = '';
-  btn.classList.remove('hidden');
+  galleryList.innerHTML = '';
 
-  return fechApi(URL_API, config)
+  // let gallery = new SimpleLightbox('.photo-card a');
+  // gallery.refresh();
+  // gallery.on('show.simplelightbox', function () {
+  //   console.log(gallery, 'hello');
+  // });
+
+  // const lightbox = new SimpleLightbox('.photo-card a', {
+  //   captionPosition: 'bottom',
+  //   scrollZoom: false,
+  //   disableScroll: true,
+  //   captionDelay: 250,
+  //   captions: true,
+  //   captionsData: 'alt',
+  // });
+
+  return fechApi(URL_API)
     .then(showRespons)
     .catch(error => {
       console.error(error, 'not found');
