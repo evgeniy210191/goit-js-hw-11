@@ -11,7 +11,7 @@ const [form, galleryList, btn, body] = [
   'body',
 ].map(item => document.querySelector(item));
 let groop = 1;
-const page = 40;
+const page = 8;
 
 const lightbox = new SimpleLightbox('.photo-card a', {
   captionPosition: 'bottom',
@@ -32,6 +32,11 @@ function showRespons(data) {
   }
   if (data.hits.length > 0) {
     Notiflix.Notify.info(`Hooray! We found ${data.hits.length} images.`);
+    if (data.hits.length < page) {
+      Notiflix.Notify.failure(
+        'We are sorry, but you have reached the end of search results.'
+      );
+    }
   }
 
   galleryList.insertAdjacentHTML('beforeEnd', render(data));
