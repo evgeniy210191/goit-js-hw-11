@@ -48,6 +48,10 @@ table {
   border-spacing: 0;
 }
 
+main {
+  display: inline-block;
+}
+
 .gallery {
   display: grid;
   grid-template: auto/1fr 1fr 1fr 1fr;
@@ -55,6 +59,12 @@ table {
      -moz-column-gap: 15px;
           column-gap: 15px;
   row-gap: 15px;
+}
+@media screen and (max-width: 450px) {
+  .gallery {
+    grid-template: auto auto/1fr;
+    padding: 0 15px;
+  }
 }
 .gallery img {
   display: block;
@@ -137,17 +147,7 @@ table {
 }
 
 .load-more.hidden {
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  border: 0;
-  padding: 0;
-  clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-          clip-path: inset(50%);
-  margin: -1px;
+  display: none;
 }
 
 .search {

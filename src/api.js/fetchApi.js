@@ -1,13 +1,12 @@
 const axios = require('axios/dist/browser/axios.cjs');
-export function fechApi(url) {
-  return axios.get(url).then(res => {
-    if (!res.readyState === 4) {
-      if (!res.status === 200) {
-        throw new Error(res.statusText);
-      }
-    }
+
+export async function fechApi(url) {
+  try {
+    const res = await axios.get(url);
     return res.data;
-  });
+  } catch (error) {
+    console.error(res.statusText);
+  }
 }
 
 export const config = {

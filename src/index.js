@@ -13,11 +13,12 @@ const lightbox = new SimpleLightbox('.photo-card a', {
   captionsData: 'alt',
 });
 
-const [form, galleryList, btn, img] = [
+const [form, galleryList, btn, img, body] = [
   '#search-form',
   '.gallery',
   '.load-more',
   '.loading',
+  'body',
 ].map(item => document.querySelector(item));
 let groop = 1;
 const page = 4;
@@ -44,6 +45,7 @@ function showRespons(data) {
   if (img.classList.contains('load')) {
     img.classList.remove('load');
   }
+  lightbox.refresh();
 }
 
 function addData(data) {
@@ -58,11 +60,17 @@ function addData(data) {
   }
 
   galleryList.insertAdjacentHTML('beforeEnd', render(data));
-
+  lightbox.refresh();
   if (img.classList.contains('load')) {
     img.classList.remove('load');
   }
 
+  if (window.innerHeight < galleryList.getBoundingClientRect().height) {
+    window.scrollTo({
+      top: body.getBoundingClientRect().height - window.innerHeight,
+      behavior: 'smooth',
+    });
+  }
   if (data.hits.length < page) {
     btn.classList.add('hidden');
   }
@@ -72,7 +80,7 @@ let query = '';
 
 function showSearch(event) {
   event.preventDefault();
-  query = event.currentTarget.elements.searchQuery.value;
+  query = event.currentTarget.elements.searchQuery.value.trim();
   if (!img.classList.contains('load')) {
     img.classList.add('load');
   }
@@ -80,21 +88,6 @@ function showSearch(event) {
   const URL_API = `https://pixabay.com/api/?orientation=horizontal&per_page=${page}&page=${groop}&q=${query}&image_type=photo&safesearch=true&key=36116088-deee45cedc6b935fbf33378b4`;
   if (query === '') return;
   galleryList.innerHTML = '';
-
-  // let gallery = new SimpleLightbox('.photo-card a');
-  // gallery.refresh();
-  // gallery.on('show.simplelightbox', function () {
-  //   console.log(gallery, 'hello');
-  // });
-
-  // const lightbox = new SimpleLightbox('.photo-card a', {
-  //   captionPosition: 'bottom',
-  //   scrollZoom: false,
-  //   disableScroll: true,
-  //   captionDelay: 250,
-  //   captions: true,
-  //   captionsData: 'alt',
-  // });
 
   return fechApi(URL_API)
     .then(showRespons)
@@ -110,7 +103,7 @@ function loadMore() {
     img.classList.add('load');
   }
   groop += 1;
-  const URL_API = `https://pixabay.com/api/?orientation=horizontal&per_page=4&page=${groop}&q=${query}&image_type=photo&safesearch=true&key=36116088-deee45cedc6b935fbf33378b4`;
+  const URL_API = `https://pixabay.com/api/?orientation=horizontal&per_page=${page}&page=${groop}&q=${query}&image_type=photo&safesearch=true&key=36116088-deee45cedc6b935fbf33378b4`;
 
   return fechApi(URL_API, config)
     .then(addData)

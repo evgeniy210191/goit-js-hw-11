@@ -1,5 +1,8 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
-
+main{
+  display: inline-block;
+  width:100%;
+}
 .gallery{
   display: grid;
   grid-template:auto/1fr 1fr 1fr 1fr;
@@ -65,15 +68,6 @@
 }
 
 .load-more.hidden {
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  border: 0;
-  padding: 0;
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  margin: -1px;
+  display: none;
 }
 
