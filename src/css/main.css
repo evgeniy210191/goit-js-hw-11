@@ -2,6 +2,7 @@
 main {
   display: inline-block;
   width: 100%;
+  margin-bottom: 8px;
 }
 
 .gallery {
@@ -63,39 +64,6 @@ main {
   padding: 3px 10px;
   position: relative;
   cursor: pointer;
-}
-.load-more .loading {
-  position: absolute;
-  height: 15px;
-  width: 15px;
-  left: -20px;
-  top: 50%;
-  -webkit-transform: translateY(-50%) scale(0);
-          transform: translateY(-50%) scale(0);
-}
-.load-more .loading.load {
-  -webkit-animation: 2s linear 0s infinite loading;
-          animation: 2s linear 0s infinite loading;
-}
-@-webkit-keyframes loading {
-  from {
-    -webkit-transform: translateY(-50%);
-            transform: translateY(-50%);
-  }
-  to {
-    -webkit-transform: translateY(-50%) rotateZ(1turn);
-            transform: translateY(-50%) rotateZ(1turn);
-  }
-}
-@keyframes loading {
-  from {
-    -webkit-transform: translateY(-50%);
-            transform: translateY(-50%);
-  }
-  to {
-    -webkit-transform: translateY(-50%) rotateZ(1turn);
-            transform: translateY(-50%) rotateZ(1turn);
-  }
 }
 
 .load-more.hidden {
