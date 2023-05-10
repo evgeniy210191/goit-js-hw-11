@@ -38,11 +38,8 @@ function showRespons(data) {
       );
     }
   }
-
   galleryList.insertAdjacentHTML('beforeEnd', render(data));
-
   lightbox.refresh();
-
   if (data.hits.length === page) {
     btn.classList.remove('hidden');
   }
@@ -50,13 +47,11 @@ function showRespons(data) {
 
 function addData(data) {
   Notiflix.Notify.info(`Hooray! We found ${data.hits.length} images.`);
-
   if (data.hits.length < page) {
     Notiflix.Notify.failure(
       'We are sorry, but you have reached the end of search results.'
     );
   }
-
   galleryList.insertAdjacentHTML('beforeEnd', render(data));
   lightbox.refresh();
 
@@ -70,22 +65,16 @@ function addData(data) {
     });
   }
 }
-
 let query = '';
 
 function showSearch(event) {
   event.preventDefault();
-
   query = event.currentTarget.elements.searchQuery.value.trim();
-
   btn.classList.add('hidden');
-
   groop = 1;
   const URL_API = `https://pixabay.com/api/?orientation=horizontal&per_page=${page}&page=${groop}&q=${query}&image_type=photo&safesearch=true&key=36116088-deee45cedc6b935fbf33378b4`;
-
   if (query === '') return;
   galleryList.innerHTML = '';
-
   return fechApi(URL_API)
     .then(showRespons)
     .catch(error => {
