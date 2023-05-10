@@ -11,7 +11,7 @@ const [form, galleryList, btn, body] = [
   'body',
 ].map(item => document.querySelector(item));
 let groop = 1;
-const page = 8;
+const page = 40;
 
 const lightbox = new SimpleLightbox('.photo-card a', {
   captionPosition: 'bottom',
