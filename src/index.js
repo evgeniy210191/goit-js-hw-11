@@ -1,5 +1,5 @@
 import { render } from './api.js/pattern';
-import { fechApi, config } from './api.js/fetchApi';
+import { fechApi } from './api.js/fetchApi';
 import Notiflix from 'notiflix';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';

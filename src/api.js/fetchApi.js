@@ -8,11 +8,3 @@ export async function fechApi(url) {
     console.error(res.statusText);
   }
 }
-
-export const config = {
-  headers: {
-    'cache-control': 'max-age=86400',
-    'content-language': 'en',
-    'content-type': 'application/json',
-  },
-};
